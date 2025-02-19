@@ -68,6 +68,11 @@ $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </table>
         <?php endif;?>
         <?php elseif ($user["statut"] == 'admin') :?>
+        <?php
+
+            $stmt = $conn->prepare("SELECT * FROM annonces");
+            $stmt->execute();
+            $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC); ?>
             <div class="card p-4 shadow-sm mt-4">
                 <h4><i class="bi bi-megaphone"></i> Les annonces</h4>
                 <?php if (count($annonces) > 0): ?>
