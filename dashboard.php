@@ -42,7 +42,7 @@ $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <p><strong>Statut :</strong> <?= ucfirst(htmlspecialchars($user['statut'])); ?></p>
         <a href="utilisateurs/edit_profil.php" class="btn btn-primary">Modifier mes informations</a>
     </div>
-    <?php if ($satut !== 'etudiant') : ?>
+    <?php if ($user["statut"] !== 'etudiant') : ?>
     <!-- Liste des annonces publiées -->
     <div class="card p-4 shadow-sm mt-4">
         <h4><i class="bi bi-megaphone"></i> Mes annonces</h4>
@@ -74,8 +74,7 @@ $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php endif; ?>
         <a href="annonces/ajouter_annonce.php" class="btn btn-success mt-3"><i class="bi bi-plus"></i> Ajouter une annonce</a>
     </div>
-    <?php else: ?>
-        <p>Vous n'avez pas accès à la section des annonces.</p>
+
     <?php endif; ?>
 
     <!-- Section Messagerie -->
