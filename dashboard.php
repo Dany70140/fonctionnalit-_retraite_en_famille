@@ -33,7 +33,7 @@ $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php require 'includes/navbar.php'; ?>
 
 <div class="container mt-5">
-    <h2 class="text-center">👤 Tableau de bord</h2>
+    <h2 class="text-center"><i class="bi bi-person"></i> Tableau de bord</h2>
 
     <!-- Carte avec les informations utilisateur -->
     <div class="card p-4 shadow-sm mt-4">
@@ -45,7 +45,7 @@ $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- Liste des annonces publiées -->
     <div class="card p-4 shadow-sm mt-4">
-        <h4>📢 Mes annonces</h4>
+        <h4><i class="bi bi-megaphone"></i> Mes annonces</h4>
         <?php if (count($annonces) > 0): ?>
             <table class="table mt-3">
                 <thead>
@@ -72,19 +72,19 @@ $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php else: ?>
             <p>Aucune annonce publiée pour le moment.</p>
         <?php endif; ?>
-        <a href="annonces/ajouter_annonce.php" class="btn btn-success mt-3">➕ Ajouter une annonce</a>
+        <a href="annonces/ajouter_annonce.php" class="btn btn-success mt-3"><i class="bi bi-plus"></i> Ajouter une annonce</a>
     </div>
 
     <!-- Section Messagerie -->
     <div class="card p-4 shadow-sm mt-4">
-        <h4>📩 Messagerie</h4>
+        <h4><i class="bi bi-chat-left"></i> Messagerie</h4>
         <p>Consultez vos messages et échangez avec d'autres utilisateurs.</p>
         <a href="utilisateurs/message.php" class="btn btn-secondary">Accéder à ma messagerie</a>
     </div>
 
     <!-- Section Avis -->
     <div class="card p-4 shadow-sm mt-4">
-        <h4>⭐ Avis</h4>
+        <h4><i class="bi bi-star"></i> Avis</h4>
         <p>Consultez les avis reçus et laissés par d'autres utilisateurs.</p>
         <a href="/utilisateurs/avis.php?id=<?= $user_id; ?>" class="btn btn-info">Voir mes avis</a>
     </div>

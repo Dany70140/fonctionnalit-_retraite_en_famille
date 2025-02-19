@@ -36,7 +36,7 @@ $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php require '../includes/navbar.php'; ?>
 
 <div class="container mt-5">
-    <h2 class="text-center">📨 Ma messagerie</h2>
+    <h2 class="text-center"><i class="bi bi-chat-left"></i> Ma messagerie</h2>
 
     <?php if (isset($_GET['success']) && $_GET['success'] == 'message_envoye'): ?>
         <div class="alert alert-success">✅ Message envoyé avec succès !</div>

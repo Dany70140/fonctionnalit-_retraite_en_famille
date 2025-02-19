@@ -32,7 +32,7 @@ if (!$user) {
 <?php require '../includes/navbar.php'; ?>
 
 <div class="container mt-5">
-    <h2 class="text-center">👤 Mon Profil</h2>
+    <h2 class="text-center"><i class="bi bi-person"></i> Mon Profil</h2>
 
     <div class="card p-4 shadow-sm mt-4">
         <h4><?= htmlspecialchars($user['prenom']) . " " . htmlspecialchars($user['nom']); ?></h4>
