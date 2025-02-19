@@ -40,7 +40,7 @@ if (!$user) {
         <p><strong>Âge :</strong> <?= htmlspecialchars($user['age']); ?> ans</p>
         <p><strong>Statut :</strong> <?= ucfirst(htmlspecialchars($user['statut'])); ?></p>
         <p><strong>Téléphone :</strong> <?= htmlspecialchars($user['telephone']); ?></p>
-        <a href="edit_profil.php" class="btn btn-primary">✏️ Modifier mon profil</a>
+        <a href="edit_profil.php" class="btn btn-primary"><i class="bi bi-pencil"></i>️ Modifier mon profil</a>
 
     </div>
 </div>
