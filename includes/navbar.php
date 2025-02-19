@@ -11,7 +11,6 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <?php if (estConnecte()): ?>
-                    <li class="nav-item"><a class="nav-link" href="/utilisateurs/message.php"><i class="bi bi-chat-left"></i></a></li>
                     <li class="nav-item"><a class="nav-link" href="/utilisateurs/profil.php"><i class="bi bi-person"></i></a></li>
                     <li class="nav-item"><a class="nav-link" href="../dashboard.php"><i class="bi bi-clipboard-data"></i> Tableau de bord</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-danger text-dark" href="/utilisateurs/deconnexion.php"><i class="bi bi-box-arrow-in-right"></i> Déconnexion</a></li>

@@ -2,19 +2,16 @@
 session_start();
 require 'config/config.php';
 
-// Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
     header("Location: /utilisateurs/connexion.php");
     exit();
 }
 
-// Récupérer les infos de l'utilisateur connecté
 $user_id = $_SESSION['user_id'];
 $stmt = $conn->prepare("SELECT nom, prenom, email, statut FROM utilisateurs WHERE id = ?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Récupérer les annonces publiées par l'utilisateur
 $stmt = $conn->prepare("SELECT * FROM annonces WHERE utilisateur_id = ?");
 $stmt->execute([$user_id]);
 $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -43,7 +40,7 @@ $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <a href="utilisateurs/edit_profil.php" class="btn btn-primary">Modifier mes informations</a>
     </div>
     <?php if ($user["statut"] !== 'etudiant') : ?>
-    <!-- Liste des annonces publiées -->
+
     <div class="card p-4 shadow-sm mt-4">
         <h4><i class="bi bi-megaphone"></i> Mes annonces</h4>
         <?php if (count($annonces) > 0): ?>
@@ -77,19 +74,6 @@ $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <?php endif; ?>
 
-    <!-- Section Messagerie -->
-    <div class="card p-4 shadow-sm mt-4">
-        <h4><i class="bi bi-chat-left"></i> Messagerie</h4>
-        <p>Consultez vos messages et échangez avec d'autres utilisateurs.</p>
-        <a href="utilisateurs/message.php" class="btn btn-secondary">Accéder à ma messagerie</a>
-    </div>
-
-    <!-- Section Avis -->
-    <div class="card p-4 shadow-sm mt-4">
-        <h4><i class="bi bi-star"></i> Avis</h4>
-        <p>Consultez les avis reçus et laissés par d'autres utilisateurs.</p>
-        <a href="/utilisateurs/avis.php?id=<?= $user_id; ?>" class="btn btn-info">Voir mes avis</a>
-    </div>
 
 </div>
 

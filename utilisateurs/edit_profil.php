@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php require '../includes/navbar.php'; ?>
 
 <div class="container mt-5">
-    <h2 class="text-center">✏️ Modifier mon profil</h2>
+    <h2 class="text-center"><i class="bi bi-pencil"></i> Modifier mon profil</h2>
 
     <?php if (isset($error)): ?>
         <div class="alert alert-danger"><?= $error; ?></div>
@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label class="form-label">Téléphone</label>
             <input type="text" name="telephone" class="form-control" value="<?= htmlspecialchars($user['telephone']); ?>">
         </div>
-        <button type="submit" class="btn btn-success w-100">💾 Enregistrer</button>
+        <button type="submit" class="btn btn-success w-100"><i class="bi bi-floppy"></i> Enregistrer</button>
     </form>
 </div>
 
