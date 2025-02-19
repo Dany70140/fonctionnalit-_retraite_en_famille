@@ -42,7 +42,10 @@ if (!$annonce) {
             <p class="card-text"><strong>Meublé :</strong> <?= $annonce['meublement'] ? 'Oui' : 'Non' ?></p>
             <p class="card-text"><strong>Description :</strong> <?= nl2br(htmlspecialchars($annonce['description'])) ?></p>
 
-            <a href='mailto:<?= htmlspecialchars($annonce['contact_email']) ?>' class="btn btn-primary"><i class="bi bi-envelope"></i> Contacter</a>
+            <a href="mailto:association.complicite@gmail.com" class="btn btn-primary">
+                <i class="bi bi-envelope"></i> Contacter
+            </a>
+
         </div>
     </div>
 </div>
