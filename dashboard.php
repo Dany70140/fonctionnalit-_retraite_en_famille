@@ -39,8 +39,8 @@ $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <p><strong>Statut :</strong> <?= ucfirst(htmlspecialchars($user['statut'])); ?></p>
         <a href="utilisateurs/edit_profil.php" class="btn btn-primary">Modifier mes informations</a>
     </div>
-    <?php if ($user["statut"] !== 'etudiant') : ?>
 
+    <?php if ($user["statut"] == 'senior') : ?>
     <div class="card p-4 shadow-sm mt-4">
         <h4><i class="bi bi-megaphone"></i> Mes annonces</h4>
         <?php if (count($annonces) > 0): ?>
@@ -66,12 +66,36 @@ $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <?php endforeach; ?>
                 </tbody>
             </table>
-        <?php else: ?>
-            <p>Aucune annonce publiée pour le moment.</p>
-        <?php endif; ?>
+        <?php endif;?>
+        <?php elseif ($user["statut"] == 'admin') :?>
+            <div class="card p-4 shadow-sm mt-4">
+                <h4><i class="bi bi-megaphone"></i> Les annonces</h4>
+                <?php if (count($annonces) > 0): ?>
+                    <table class="table mt-3">
+                        <thead>
+                        <tr>
+                            <th>Prix (€)</th>
+                            <th>Ville</th>
+                            <th>Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach ($annonces as $annonce): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($annonce['prix']); ?></td>
+                                <td><?= htmlspecialchars($annonce['ville']); ?></td>
+                                <td>
+                                    <a href="annonces/modifier_annonces.php?id=<?= $annonce['id']; ?>" class="btn btn-warning btn-sm">Modifier</a>
+                                    <a href="annonces/supprimer_annonces.php?id=<?= $annonce['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?');">Supprimer</a>
+                                </td>
+
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php endif; ?>
         <a href="annonces/ajouter_annonce.php" class="btn btn-success mt-3"><i class="bi bi-plus"></i> Ajouter une annonce</a>
     </div>
-
     <?php endif; ?>
 
 
