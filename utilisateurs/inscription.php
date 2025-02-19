@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($errors)) {
         $mot_de_passe_hash = password_hash($mot_de_passe, PASSWORD_BCRYPT);
         $token = bin2hex(random_bytes(50)); // Génération d'un token unique
-        $statut_compte = "inactif";
+        $statut_compte = "actif";
 
         $stmt = $conn->prepare("INSERT INTO utilisateurs (nom, prenom, age, statut, telephone, email, mot_de_passe, token, statut_compte) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         $stmt->execute([$nom, $prenom, $age, $statut, $telephone, $email, $mot_de_passe_hash, $token, $statut_compte]);

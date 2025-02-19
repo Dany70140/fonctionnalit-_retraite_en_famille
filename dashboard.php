@@ -40,7 +40,7 @@ $annonces = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <h4>Bienvenue, <?= htmlspecialchars($user['prenom']) ." ". htmlspecialchars($user['nom']); ?> !</h4>
         <p><strong>Email :</strong> <?= htmlspecialchars($user['email']); ?></p>
         <p><strong>Statut :</strong> <?= ucfirst(htmlspecialchars($user['statut'])); ?></p>
-        <a href="edit_profil.php" class="btn btn-primary">Modifier mes informations</a>
+        <a href="utilisateurs/edit_profil.php" class="btn btn-primary">Modifier mes informations</a>
     </div>
 
     <!-- Liste des annonces publiées -->
